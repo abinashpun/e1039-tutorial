@@ -34,3 +34,8 @@ setup git
 source /e906/app/users/yuhw/setup.sh
 git clone https://github.com/E1039-Collaboration/e1039-tutorial.git
 ```
+
+### Run the simulation
+```bash
+root -l Fun4Tutorial.C
+```
