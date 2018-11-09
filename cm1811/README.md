@@ -48,7 +48,43 @@ root -l int_run.C
 
 ### Check the 'Fun4Tutorial.C' file
 
-### Experiment 1 - Enable the output manager and inspect the output DST file
+### Experiment 1 - Enable the output manager and inspect the output DST file, 'DST.root'
+
+```bash
+root -l
+root [0] gSystem->Load("libg4detectors.so")
+root [1] TFile *f = TFile::Open("DST.root")
+root [2] TTree *T = (TTree*) f->Get("T")
+root [3] T->Show(0)
+```
+
+You should get something like this:
+```bash
+======> EVENT:0
+ DST.PHHepMCGenEventMap = (PHHepMCGenEventMap*)0x2570fe0
+ DST.PHHepMCGenEventMap.fUniqueID = 0
+ DST.PHHepMCGenEventMap.fBits = 50331648
+ DST.PHHepMCGenEventMap._map = (map<int,PHHepMCGenEvent*>*)0x2570ff8
+ DST.G4HIT_Sensor = (PHG4HitContainer*)0x26f3bc0
+ DST.G4HIT_Sensor.fUniqueID = 0
+ DST.G4HIT_Sensor.fBits = 50331648
+ DST.G4HIT_Sensor.id = -884413610
+ DST.G4HIT_Sensor.hitmap = (map<ULong64_t,PHG4Hit*>*)0x26f3be0
+ DST.G4HIT_Sensor.layers = (set<unsigned int>*)0x26f3c10
+ DST.G4TruthInfo = (PHG4TruthInfoContainer*)0x273f6a0
+ DST.G4TruthInfo.fUniqueID = 0
+ DST.G4TruthInfo.fBits = 50331648
+ DST.G4TruthInfo.particlemap = (map<int,PHG4Particle*>*)0x273f6b8
+ DST.G4TruthInfo.vtxmap = (map<int,PHG4VtxPoint*>*)0x273f6e8
+ DST.G4TruthInfo.showermap = (map<int,PHG4Shower*>*)0x273f718
+ DST.G4TruthInfo.particle_embed_flags = (map<int,int>*)0x273f7f0
+ DST.G4TruthInfo.particle_embed_flags.first = 1, 2
+ DST.G4TruthInfo.particle_embed_flags.second = 1, 1
+ DST.G4TruthInfo.vertex_embed_flags = (map<int,int>*)0x273f850
+ DST.G4TruthInfo.vertex_embed_flags.first = 1
+ DST.G4TruthInfo.vertex_embed_flags.second = 1
+```
+
 
 ### Experiment 2 - Export the geometry file and inspect the geometry using 'disp_geom.C'
 
