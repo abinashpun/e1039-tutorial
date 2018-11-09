@@ -48,11 +48,11 @@ root -l int_run.C
 
 ### Check the 'Fun4Tutorial.C' file
 
-### Exp 1 - Enable the output manager and inspect the output DST file
+### Experiment 1 - Enable the output manager and inspect the output DST file
 
-### Exp 2 - Export the geometry file and inspect the geometry using 'disp_geom.C'
+### Experiment 2 - Export the geometry file and inspect the geometry using 'disp_geom.C'
 
-### Exp 3 - Compile a analysis module and run it
+### Experiment 3 - Compile a analysis module and run it
 
 ```bash
 mkdir build
