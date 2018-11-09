@@ -33,6 +33,7 @@ git clone https://github.com/E1039-Collaboration/e1039-tutorial.git
 ### Run the simulation
 
 ```bash
+cd <path-to-e1039-tutorial>/cm1811
 root -l Fun4Tutorial.C
 ```
 
