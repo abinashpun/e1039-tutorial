@@ -86,6 +86,13 @@ You should get something like this:
 
 ### Experiment 2 - Export the geometry file and inspect the geometry using 'disp_geom.C'
 
+Modify 'Fun4Tutorial.C' to enable geometry exportation, then
+```bash
+root -l disp_geom.C
+```
+
+![root-gl-viewer](https://github.com/E1039-Collaboration/e1039-tutorial/blob/master/cm1811/pic/root-gl-viewer.png)
+
 ### Experiment 3 - Compile a analysis module and run it
 
 ```bash
