@@ -46,7 +46,7 @@ root -l Fun4Tutorial.C
 root -l int_run.C
 ```
 
-### Check the 'Fun4Tutorial.C' file
+### Inspect the 'Fun4Tutorial.C' file
 
 ### Experiment 1 - Enable the output manager and inspect the output DST file, 'DST.root'
 
