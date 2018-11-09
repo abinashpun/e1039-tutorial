@@ -181,7 +181,7 @@ int SimpleAna::GetNodes(PHCompositeNode* topNode) {
 
 	_g4hit_sensor = findNode::getClass<PHG4HitContainer>(topNode,"G4HIT_Sensor");
 	if (!_g4hit_sensor) {
-		cerr << PHWHERE << " ERROR: Can't find node G4HIT_Coil" << endl;
+		cerr << PHWHERE << " ERROR: Can't find node G4HIT_Sensor" << endl;
 		return Fun4AllReturnCodes::ABORTRUN;
 	}
 
