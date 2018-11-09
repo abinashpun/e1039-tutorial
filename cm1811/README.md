@@ -42,6 +42,8 @@ root -l Fun4Tutorial.C
 root -l int_run.C
 ```
 
+![g4-evt-disp](https://github.com/E1039-Collaboration/e1039-tutorial/blob/master/cm1811/pic/g4-evt-disp.png)
+
 ### Inspect the 'Fun4Tutorial.C' file
 
 ### Experiment 1 - Enable the output manager and inspect the output DST file, 'DST.root'
