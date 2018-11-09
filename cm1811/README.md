@@ -48,12 +48,17 @@ root -l int_run.C
 
 ### Experiment 1 - Enable the output manager and inspect the output DST file, 'DST.root'
 
+Get a interactive ROOT session
 ```bash
 root -l
-root [0] gSystem->Load("libg4detectors.so")
-root [1] TFile *f = TFile::Open("DST.root")
-root [2] TTree *T = (TTree*) f->Get("T")
-root [3] T->Show(0)
+```
+
+Within the ROOT session
+```bash
+gSystem->Load("libg4detectors.so")
+TFile *f = TFile::Open("DST.root")
+TTree *T = (TTree*) f->Get("T")
+T->Show(0)
 ```
 
 You should get something like this:
@@ -91,7 +96,7 @@ Modify 'Fun4Tutorial.C' to enable geometry exportation, then
 root -l Fun4Tutorial.C
 ```
 
-You should see a root file 'geom.root', then
+You should see a root file 'geom.root' generated. Then using the 'disp_geom.C' to inspect the geometry
 ```bash
 root -l disp_geom.C
 ```
