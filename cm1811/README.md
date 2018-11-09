@@ -1,4 +1,4 @@
-## Tutorial at E1039 11/2018 Collaboration Meeting
+## Tutorial at E1039 Collaboration Meeting - 11/2018
 
 ### Log in to seaquestgpvm01
 
