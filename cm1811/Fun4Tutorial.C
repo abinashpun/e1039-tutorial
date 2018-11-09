@@ -25,7 +25,7 @@ int Fun4Tutorial(
 		gSystem->Load("libPHPythia8.so");
 
 		PHPythia8 *pythia8 = new PHPythia8();
-		pythia8->set_config_file("phpythia8_DY.cfg");
+		pythia8->set_config_file("pythia8.cfg");
 		pythia8->set_vertex_distribution_mean(0, 0, -300, 0);
 		se->registerSubsystem(pythia8);
 
