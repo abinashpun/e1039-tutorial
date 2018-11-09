@@ -108,6 +108,8 @@ root -l disp_geom.C
 ```bash
 mkdir build
 mkdir install
+
+cd <path-to-build>
 cmake -DCMAKE_INSTALL_PREFIX=<path-to-install> ../SimpleAna/
 make
 make install
