@@ -36,6 +36,45 @@ git clone https://github.com/E1039-Collaboration/e1039-tutorial.git
 ```
 
 ### Run the simulation
+
 ```bash
 root -l Fun4Tutorial.C
 ```
+
+### (Optional) Run it with GEANT4 event display
+```bash
+root -l int_run.C
+```
+
+### Check the 'Fun4Tutorial.C' file
+
+### Exp 1 - Enable the output manager and inspect the output DST file
+
+### Exp 2 - Export the geometry file and inspect the geometry using 'disp_geom.C'
+
+### Exp 3 - Compile a analysis module and run it
+
+```bash
+mkdir build
+mkdir install
+cmake -DCMAKE_INSTALL_PREFIX=<path-to-install> ../SimpleAna/
+make
+make install
+```
+A dynamic library, 'libsimple_ana.so' should be generated and installed at <path-to-install/lib>
+
+
+Add <path-to-install>/lib to your LD_LIBRARY_PATH
+```bash
+export LD_LIBRARY_PATH=<path-to-install>/lib/:$LD_LIBRARY_PATH
+```
+
+Edit the Experiment 3 part to enable the SimpleAna module, run it again.
+Check the output 'eval.root'
+
+### Inspect the 'SimpleAna' module
+
+
+
+
+
