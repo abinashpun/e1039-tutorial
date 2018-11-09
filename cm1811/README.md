@@ -44,7 +44,7 @@ root -l int_run.C
 
 ![g4-evt-disp](https://github.com/E1039-Collaboration/e1039-tutorial/blob/master/cm1811/pic/g4-evt-disp.png)
 
-### Inspect the 'Fun4Tutorial.C' file
+### Inspect the '[Fun4Tutorial.C](https://github.com/E1039-Collaboration/e1039-tutorial/blob/master/cm1811/Fun4Tutorial.C)' file
 
 ### Experiment 1 - Enable the output manager and inspect the output DST file, 'DST.root'
 
@@ -125,7 +125,7 @@ export LD_LIBRARY_PATH=<path-to-install>/lib/:$LD_LIBRARY_PATH
 Edit the Experiment 3 part to enable the SimpleAna module, run it again.
 Check the output 'eval.root'
 
-### Inspect the 'SimpleAna' module
+### Inspect the '[SimpleAna](https://github.com/E1039-Collaboration/e1039-tutorial/tree/master/cm1811/SimpleAna)' module
 
 
 
