@@ -88,6 +88,11 @@ You should get something like this:
 
 Modify 'Fun4Tutorial.C' to enable geometry exportation, then
 ```bash
+root -l Fun4Tutorial.C
+```
+
+You should see a root file 'geom.root', then
+```bash
 root -l disp_geom.C
 ```
 
