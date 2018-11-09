@@ -47,8 +47,6 @@ int Fun4Tutorial(
 
 	// Fun4All G4 module
 	PHG4Reco *g4Reco = new PHG4Reco();
-	//g4Reco->G4Seed(123);
-	g4Reco->set_field(2.);
 
 	// size of the world - every detector has to fit in here
 	g4Reco->SetWorldSizeX(1000);
@@ -63,8 +61,10 @@ int Fun4Tutorial(
 	se->registerSubsystem(g4Reco);
 
 	
-	// Setup geometries
+	// Setup field
+	g4Reco->set_field(2.);
 
+	// Setup geometries
 	PHG4BlockSubsystem *box = new PHG4BlockSubsystem("Shield", 0);
 	box->SuperDetector("Shield");
 	box->set_double_param("size_x", 100);
@@ -92,6 +92,12 @@ int Fun4Tutorial(
 
 	PHG4TruthSubsystem *truth = new PHG4TruthSubsystem();
 	g4Reco->registerSubsystem(truth);
+
+	//gSystem->Load("libsimple_ana");
+	//SimpleAna* ana = new SimpleAna();
+	//ana->Verbosity(0);
+	//se->registerSubsystem(ana);
+
 
 	// input - we need a dummy to drive the event loop
 	Fun4AllInputManager *in = new Fun4AllDummyInputManager("JADE");
