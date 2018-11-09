@@ -18,6 +18,9 @@ int Fun4Tutorial(
 	Fun4AllServer *se = Fun4AllServer::instance();
 	se->Verbosity(100);
 
+	///////////////////////////////////////////
+	// Setup generator
+	//////////////////////////////////////////
 	{
 		gSystem->Load("libPHPythia8.so");
 
@@ -45,7 +48,9 @@ int Fun4Tutorial(
 		se->registerSubsystem(hr);
 	}
 
+	///////////////////////////////////////////
 	// Fun4All G4 module
+	//////////////////////////////////////////
 	PHG4Reco *g4Reco = new PHG4Reco();
 
 	// size of the world - every detector has to fit in here
@@ -61,10 +66,16 @@ int Fun4Tutorial(
 	se->registerSubsystem(g4Reco);
 
 	
+	///////////////////////////////////////////
 	// Setup field
+	///////////////////////////////////////////
 	g4Reco->set_field(2.);
 
+	///////////////////////////////////////////
 	// Setup geometries
+	///////////////////////////////////////////
+
+  // A big shielding block
 	PHG4BlockSubsystem *box = new PHG4BlockSubsystem("Shield", 0);
 	box->SuperDetector("Shield");
 	box->set_double_param("size_x", 100);
@@ -77,7 +88,7 @@ int Fun4Tutorial(
 	box->SetActive(0);
 	g4Reco->registerSubsystem(box);
 
-
+  // Sensitive detector - PHG4Hits would be saved
 	box = new PHG4BlockSubsystem("Sensor", 0);
 	box->SuperDetector("Sensor");
 	box->set_double_param("size_x", 100);
@@ -90,9 +101,15 @@ int Fun4Tutorial(
 	box->SetActive(1);
 	g4Reco->registerSubsystem(box);
 
+  // Save truth information to Node Tree
 	PHG4TruthSubsystem *truth = new PHG4TruthSubsystem();
 	g4Reco->registerSubsystem(truth);
 
+	///////////////////////////////////////////
+  // Experiment 3
+  // Simple analysis module
+	///////////////////////////////////////////
+  
 	//gSystem->Load("libsimple_ana");
 	//SimpleAna* ana = new SimpleAna();
 	//ana->Verbosity(0);
@@ -103,16 +120,23 @@ int Fun4Tutorial(
 	Fun4AllInputManager *in = new Fun4AllDummyInputManager("JADE");
 	se->registerInputManager(in);
 
+	///////////////////////////////////////////
+  // Experiment 1
+  // output - DST output
+	///////////////////////////////////////////
+  
 	//Fun4AllDstOutputManager *out = new Fun4AllDstOutputManager("DSTOUT", "DST.root");
 	//se->registerOutputManager(out);
-
-	// a quick evaluator to inspect on hit/particle/tower level
 
 	if (nEvents > 0)
 	{
 		se->run(nEvents);
-
-		PHGeomUtility::ExportGeomtry(se->topNode(),"geom.root");
+	  ///////////////////////////////////////////
+    // Experiment 2
+    // export the geometry
+	  ///////////////////////////////////////////
+    
+		//PHGeomUtility::ExportGeomtry(se->topNode(),"geom.root");
 
 		// finish job - close and save output files
 		se->End();

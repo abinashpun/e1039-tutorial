@@ -8,7 +8,7 @@ void int_run() {
 
   g4->ApplyCommand("/vis/viewer/zoom 0.25");
 
-  g4->ApplyCommand("/vis/viewer/panTo 2000 0 cm");
+  //g4->ApplyCommand("/vis/viewer/panTo 2000 0 cm");
 
 	//g4->ApplyCommand("/vis/viewer/zoom 0.5");
 	//g4->ApplyCommand("/vis/viewer/set/background white");
