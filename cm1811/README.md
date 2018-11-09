@@ -98,7 +98,7 @@ root -l disp_geom.C
 
 ![root-gl-viewer](https://github.com/E1039-Collaboration/e1039-tutorial/blob/master/cm1811/pic/root-gl-viewer.png)
 
-### Experiment 3 - Compile a analysis module and run it
+### Experiment 3 - Compile an analysis module and run it
 
 ```bash
 mkdir build
@@ -110,7 +110,7 @@ make install
 A dynamic library, 'libsimple_ana.so' should be generated and installed at <path-to-install/lib>
 
 
-Add <path-to-install>/lib to your LD_LIBRARY_PATH
+Add `<path-to-install>/lib` to your `LD_LIBRARY_PATH`
 ```bash
 export LD_LIBRARY_PATH=<path-to-install>/lib/:$LD_LIBRARY_PATH
 ```
