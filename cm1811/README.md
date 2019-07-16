@@ -8,7 +8,7 @@ kinit -f <usr>@FNAL.GOV
 type your password, then
 
 ```bash
-ssh -AKX -l krbtgt/FNAL.GOV@FNAL.GOV <usr>@seaquestgpvm01.fnal.gov
+ssh -Y <usr>@spinquestgpvm01.fnal.gov
 ```
 
 ### Source the setup macro and git clone the tutorial repository
