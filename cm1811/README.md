@@ -1,4 +1,4 @@
-## Fun4All Tutorial at the E1039 Collaboration Meeting - 11/2018
+## Fun4All Tutorial at the E1039 Collaboration Meeting - 2018-11
 
 ### Log in to seaquestgpvm01
 
