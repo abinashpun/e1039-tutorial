@@ -9,7 +9,7 @@ R__LOAD_LIBRARY(libPHPythia8)
 // Experiment 3 part 1
 // Simple analysis module
 ///////////////////////////////////////////
-R__LOAD_LIBRARY(libsimple_ana)
+//R__LOAD_LIBRARY(libsimple_ana)
 #endif
 
   using namespace std;
