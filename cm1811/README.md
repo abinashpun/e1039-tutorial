@@ -111,6 +111,7 @@ A dynamic library, 'libsimple_ana.so' should be generated and installed at <path
 
 
 Add `<path-to-install>/lib` to your `LD_LIBRARY_PATH`
+Add `<path-to-install>/include` to your `ROOT_INCLUDE_PATH`
 ```bash
 export LD_LIBRARY_PATH=<path-to-install>/lib/:$LD_LIBRARY_PATH
 export ROOT_INCLUDE_PATH=<path-to-install>/include/:$ROOT_INCLUDE_PATH
