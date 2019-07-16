@@ -17,15 +17,8 @@ If you have a GitHub account and have your public key uploaded to GitHub:
 
 (Refer [Connecting to GitHub with SSH](https://help.github.com/articles/connecting-to-github-with-ssh/)
 and [this E1039 wiki page](https://github.com/E1039-Collaboration/e1039-wiki/wiki/Work-with-GitHub))
-```bash
-source /e906/app/users/yuhw/setup.sh
-git clone git@github.com:E1039-Collaboration/e1039-tutorial.git
-```
 
-If not:
 ```bash
-source /grid/fermiapp/products/uboone/setup_uboone.sh
-setup git
 source /e906/app/users/yuhw/setup.sh
 git clone https://github.com/E1039-Collaboration/e1039-tutorial.git
 ```
@@ -54,7 +47,7 @@ root -l
 ```
 
 Within the ROOT session
-```bash
+```C++
 gSystem->Load("libg4detectors.so")
 TFile *f = TFile::Open("DST.root")
 TTree *T = (TTree*) f->Get("T")
@@ -118,8 +111,10 @@ A dynamic library, 'libsimple_ana.so' should be generated and installed at <path
 
 
 Add `<path-to-install>/lib` to your `LD_LIBRARY_PATH`
+Add `<path-to-install>/include` to your `ROOT_INCLUDE_PATH`
 ```bash
 export LD_LIBRARY_PATH=<path-to-install>/lib/:$LD_LIBRARY_PATH
+export ROOT_INCLUDE_PATH=<path-to-install>/include/:$ROOT_INCLUDE_PATH
 ```
 
 Edit the Experiment 3 part to enable the SimpleAna module, run it again.
