@@ -107,7 +107,7 @@ cmake -DCMAKE_INSTALL_PREFIX=<path-to-install> ../SimpleAna/
 make
 make install
 ```
-A dynamic library, 'libsimple_ana.so' should be generated and installed at <path-to-install/lib>
+A dynamic library, 'libsimple_ana.so' should be generated and installed at <path-to-install/lib> and header at <path-to-install/include>
 
 
  - Add `<path-to-install>/lib` to your `LD_LIBRARY_PATH`
