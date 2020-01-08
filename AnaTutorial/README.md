@@ -9,7 +9,7 @@ and tracking information are extracted into root tree format.
 The analysis code is located in `e1039-tutorial/AnaTutorial/src`.
 The following commands set up the shell environment and compile the code;
 ```
-cd e1039-analysis/AnaTutorial
+cd e1039-tutorial/AnaTutorial
 source setup.sh
 cd build
 cmake-ana-tutorial
