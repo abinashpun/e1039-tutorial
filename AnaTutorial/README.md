@@ -2,7 +2,7 @@
 
 A simple example of building an analysis module in Fun4All framework. This shows how to extract physics information
 from the NodeTree, and produce a root file that can be used for further analysis. In this package, truth particle information 
-and tracking information are extracted into root tree format.
+and tracking information are extracted into ROOT Tree format.
 
 ## Building
 
