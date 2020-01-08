@@ -20,7 +20,7 @@ You are expected to later look into the script and the analysis code to make you
 ### Running the analysis macro
 
 The running macro is located in `e1039-tutorial/AnaTutorial/macro`.
-Please copy the macro `Fun4Sim_ana_tutorial.C` to the default area of simulation macro `e1039-analysis/SimChainDev`
+Copy the macro `Fun4Sim_ana_tutorial.C` to the default area of simulation macro i.e. `e1039-analysis/SimChainDev`
 
 ```
 cp Fun4Sim_ana_tutorial.C path_to/e1039-analysis/SimChainDev/
