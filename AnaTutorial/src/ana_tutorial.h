@@ -23,14 +23,23 @@ class ana_tutorial : public SubsysReco
   //Destructor
   virtual ~ana_tutorial();
 
-  // SubsysReco initialize processing method
+  // SubsysReco initialize 
   int Init(PHCompositeNode *);
 
-  // SubsysReco event processing method
+
+ // SubsysReco initialize during new run
+  int InitRun(PHCompositeNode *);
+
+  // SubsysReco event processing method, called in each event.
   int process_event(PHCompositeNode *);
+
+  //Clean up after each event after each event is processed
+  int ResetEvent();
 
   // SubsysReco end processing method
   int End(PHCompositeNode *);
+
+  
 
  
  private:
