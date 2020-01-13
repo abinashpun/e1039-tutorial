@@ -57,7 +57,7 @@ ana_tutorial::~ana_tutorial()
 
 
 //
-/// Initialize the module
+/// Initialize the process
 //
 int ana_tutorial::Init(PHCompositeNode *topNode)
 {
@@ -70,6 +70,14 @@ int ana_tutorial::Init(PHCompositeNode *topNode)
 
 }
 
+//
+/// Initialize the run
+//
+int ana_tutorial::InitRun(PHCompositeNode *topNode)
+{
+  
+  return Fun4AllReturnCodes::EVENT_OK;
+}
 
 //
 ///  Main function which is called in each event (main play ground to extract what you want and implement your cuts etc. here)
@@ -81,6 +89,16 @@ int ana_tutorial::process_event(PHCompositeNode *topNode)
   TrkRecoEval(topNode); //get track info
 
   return Fun4AllReturnCodes::EVENT_OK;
+}
+
+
+//
+/// called after the end of an event
+//
+
+int ana_tutorial::ResetEvent()
+{
+return Fun4AllReturnCodes::EVENT_OK;
 }
 
 //
