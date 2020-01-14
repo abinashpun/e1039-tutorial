@@ -23,21 +23,17 @@ class ana_tutorial : public SubsysReco
   //Destructor
   virtual ~ana_tutorial();
 
-  // SubsysReco initialize 
-  int Init(PHCompositeNode *);
+  //@
+  //Basic Fun4All methods (SubsysReco functions) 
 
-
- // SubsysReco initialize during new run
-  int InitRun(PHCompositeNode *);
-
-  // SubsysReco event processing method, called in each event.
-  int process_event(PHCompositeNode *);
-
-  //Clean up after each event after each event is processed
-  int ResetEvent();
-
-  // SubsysReco end processing method
-  int End(PHCompositeNode *);
+  int Init(PHCompositeNode *topNode); //called once you register the module with Fun4AllServer
+  int InitRun(PHCompositeNode *topNode); //called before first event in new Run
+  int process_event(PHCompositeNode *topNode); //called for every event (main function)
+  int ResetEvent(PHCompositeNode *topNode); //clean up leftovers of the event
+  int EndRun(const int runnumber); //called before InitRun
+  int End(PHCompositeNode *topNode); //Last call
+  //
+  //@
 
   
 
