@@ -95,11 +95,20 @@ int ana_tutorial::process_event(PHCompositeNode *topNode)
 //
 /// called after the end of an event
 //
-
-int ana_tutorial::ResetEvent()
+int ana_tutorial::ResetEvent(PHCompositeNode *topNode)
 {
 return Fun4AllReturnCodes::EVENT_OK;
 }
+
+
+//
+/// called after the end of Run
+//
+int ana_tutorial::EndRun(const int runnumber)
+{
+return Fun4AllReturnCodes::EVENT_OK;
+}
+
 
 //
 /// End the module (write files here)
