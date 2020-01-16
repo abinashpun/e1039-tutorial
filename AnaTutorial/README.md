@@ -16,6 +16,11 @@ login to a submitter node
 ```
 ssh -Y <usr>@spinquestgpvm01.fnal.gov
 ```
+
+check out analysis repository from github
+```
+git clone https://github.com/E1039-Collaboration/e1039-tutorial.git
+```
 ## Building
 
 The analysis code is located in `e1039-tutorial/AnaTutorial/src`.
