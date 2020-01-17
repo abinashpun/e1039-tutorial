@@ -61,10 +61,7 @@ ana_tutorial::~ana_tutorial()
 //
 int ana_tutorial::Init(PHCompositeNode *topNode)
 {
-  file = new TFile(outfilename.c_str(), "RECREATE");
-
-  int ret = GetNodes(topNode);
-  if(ret != Fun4AllReturnCodes::EVENT_OK) return ret;
+  
 
   return Fun4AllReturnCodes::EVENT_OK;
 
@@ -75,7 +72,10 @@ int ana_tutorial::Init(PHCompositeNode *topNode)
 //
 int ana_tutorial::InitRun(PHCompositeNode *topNode)
 {
-  
+  file = new TFile(outfilename.c_str(), "RECREATE");
+
+  int ret = GetNodes(topNode);
+  if(ret != Fun4AllReturnCodes::EVENT_OK) return ret;
   return Fun4AllReturnCodes::EVENT_OK;
 }
 
@@ -84,7 +84,7 @@ int ana_tutorial::InitRun(PHCompositeNode *topNode)
 //
 int ana_tutorial::process_event(PHCompositeNode *topNode)
 {
-  
+ 
   TruthEval(topNode); //get truth info
   TrkRecoEval(topNode); //get track info
 
@@ -116,6 +116,10 @@ return Fun4AllReturnCodes::EVENT_OK;
 int ana_tutorial::End(PHCompositeNode *topNode)
 {
   std::cout << " DONE PROCESSING " << endl;
+  file->cd();
+  // PHTFileServer::get().cd(_out_name.c_str());
+  truth_tree->Write();
+  track_tree->Write();
 
   file->Write();
   file->Close();
@@ -147,9 +151,10 @@ int ana_tutorial::End(PHCompositeNode *topNode)
 //
 /// Function to collect the truth information from event generator
 //
+
 int ana_tutorial::TruthEval(PHCompositeNode* topNode)
 {
-
+ 
   _dimuoninfo = findNode::getClass<SQDimuonTruthInfoContainer>(topNode, "DimuonInfo");
 
   if (!_dimuoninfo) {
@@ -157,7 +162,7 @@ int ana_tutorial::TruthEval(PHCompositeNode* topNode)
   }
 
   //check for nan 
-  // if(_dimuoninfo->get_Dimuon_xs()<=0)  return Fun4AllReturnCodes::ABORTEVENT;
+  //if(_dimuoninfo->get_Dimuon_xs()<=0)  return Fun4AllReturnCodes::ABORTEVENT;
   dimuon_xs = _dimuoninfo->get_Dimuon_xs(); //Get event weight   
   if(std::isnan(dimuon_xs)) return Fun4AllReturnCodes::ABORTEVENT;
  
@@ -167,6 +172,7 @@ int ana_tutorial::TruthEval(PHCompositeNode* topNode)
     for(auto iter=_truth->GetPrimaryParticleRange().first;
     	iter!=_truth->GetPrimaryParticleRange().second;
     	++iter) {
+     
 
       /// Get this truth particle
       PHG4Particle * par= iter->second;
@@ -183,7 +189,7 @@ int ana_tutorial::TruthEval(PHCompositeNode* topNode)
       truth_py = par->get_py();
       truth_pz = par->get_pz();
       truth_e = par->get_e();
-
+      cout<<"energy"<<truth_e<<endl;
       truth_tree->Fill(); // Fill the truth tree
     }
      
@@ -194,6 +200,7 @@ int ana_tutorial::TruthEval(PHCompositeNode* topNode)
 //
 /// Function to get the tracks reconstructed from tracker
 //
+
 int ana_tutorial::TrkRecoEval(PHCompositeNode *topNode)
 {
   if(!_recEvent) {
@@ -201,6 +208,7 @@ int ana_tutorial::TrkRecoEval(PHCompositeNode *topNode)
     return Fun4AllReturnCodes::ABORTRUN;
   }
 
+   cout<<"Inside TrkRecoEval"<<endl;
 
   krecstat = _recEvent->getRecStatus(); //Reconstruction Status
 
@@ -226,7 +234,6 @@ int ana_tutorial::TrkRecoEval(PHCompositeNode *topNode)
  
   return 0;
 }
-
 //
 /// Function to reset or initialize the member variables in this class
 //
