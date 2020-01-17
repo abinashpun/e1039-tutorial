@@ -19,7 +19,7 @@ If you have a GitHub account and have your public key uploaded to GitHub:
 and [this E1039 wiki page](https://github.com/E1039-Collaboration/e1039-wiki/wiki/Work-with-GitHub))
 
 ```bash
-source /e906/app/users/yuhw/setup.sh
+source /e906/app/software/osg/software/e1039/this-e1039.sh
 git clone https://github.com/E1039-Collaboration/e1039-tutorial.git
 ```
 

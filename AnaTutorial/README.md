@@ -4,6 +4,23 @@ A simple example of building an analysis module in Fun4All framework. This shows
 from the NodeTree, and produce a root file that can be used for further analysis. In this package, truth particle information 
 and tracking information are extracted into ROOT Tree format.
 
+## login, setup and checkout the code
+
+init kerberos key, `<usr>` below means your user name.
+```
+kinit -f <usr>@FNAL.GOV
+<type your password>
+```
+
+login to a submitter node
+```
+ssh -Y <usr>@spinquestgpvm01.fnal.gov
+```
+
+check out analysis repository from github
+```
+git clone https://github.com/E1039-Collaboration/e1039-tutorial.git
+```
 ## Building
 
 The analysis code is located in `e1039-tutorial/AnaTutorial/src`.
