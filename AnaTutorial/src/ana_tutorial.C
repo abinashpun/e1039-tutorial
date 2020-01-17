@@ -189,7 +189,7 @@ int ana_tutorial::TruthEval(PHCompositeNode* topNode)
       truth_py = par->get_py();
       truth_pz = par->get_pz();
       truth_e = par->get_e();
-      cout<<"energy"<<truth_e<<endl;
+      //cout<<"energy"<<truth_e<<endl;
       truth_tree->Fill(); // Fill the truth tree
     }
      
@@ -208,7 +208,7 @@ int ana_tutorial::TrkRecoEval(PHCompositeNode *topNode)
     return Fun4AllReturnCodes::ABORTRUN;
   }
 
-   cout<<"Inside TrkRecoEval"<<endl;
+   //cout<<"Inside TrkRecoEval"<<endl;
 
   krecstat = _recEvent->getRecStatus(); //Reconstruction Status
 
