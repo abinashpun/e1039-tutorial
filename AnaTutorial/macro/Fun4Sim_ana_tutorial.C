@@ -73,7 +73,9 @@ int Fun4Sim_ana_tutorial(
   Fun4AllServer *se = Fun4AllServer::instance();
   se->Verbosity(0);
 
-
+///////////////////////////////////////////
+  // Setup generator
+  //////////////////////////////////////////
   // pythia8
   if(gen_pythia8) {
     gSystem->Load("libPHPythia8.so");
@@ -203,12 +205,16 @@ int Fun4Sim_ana_tutorial(
   }
   //@
 
-
-
+  ///////////////////////////////////////////
   // Fun4All G4 module
+  //////////////////////////////////////////
+    
   PHG4Reco *g4Reco = new PHG4Reco();
   //PHG4Reco::G4Seed(123);
   //g4Reco->set_field(5.);
+  /////////////////////////////////  
+  // Setup Fields
+  /////////////////////
   g4Reco->set_field_map(
       jobopt_svc->m_fMagFile+" "+
       jobopt_svc->m_kMagFile+" "+
@@ -241,28 +247,16 @@ int Fun4Sim_ana_tutorial(
 
   se->registerSubsystem(g4Reco);
 
+  //////////////////////////////////////////////////  
   // save truth info to the Node Tree
+  //////////////////////////////////////////////////  
   PHG4TruthSubsystem *truth = new PHG4TruthSubsystem();
   g4Reco->registerSubsystem(truth);
 
-  // digitizer
+  // Digitizer
   DPDigitizer *digitizer = new DPDigitizer("DPDigitizer", 0);
   //digitizer->Verbosity(99);
   se->registerSubsystem(digitizer);
-
-  // embedding
-  if(embedding_opt == 1) {
-    gSystem->Load("libembedding.so");
-    SRawEventEmbed *embed = new SRawEventEmbed("SRawEventEmbed");
-    embed->set_in_name("digit_016070_R007.root");
-    embed->set_in_tree_name("save");
-    embed->set_trigger_bit((1<<0));
-    //embed->set_in_name("random_run3a_1.root");
-    //embed->set_in_tree_name("mb");
-    //embed->set_trigger_bit((1<<7));
-    embed->Verbosity(0);
-    se->registerSubsystem(embed);
-  }
 
   // Trigger Emulator
   gSystem->Load("libdptrigger.so");
@@ -293,7 +287,7 @@ int Fun4Sim_ana_tutorial(
   VertexFit* vertexing = new VertexFit();
   se->registerSubsystem(vertexing);
 
-  // evaluation module
+  // Track Evaluation module
   gSystem->Load("libmodule_example.so");
   TrkEval *trk_eval = new TrkEval();
   trk_eval->Verbosity(0);
@@ -301,7 +295,7 @@ int Fun4Sim_ana_tutorial(
   trk_eval->set_out_name("trk_eval.root");
   se->registerSubsystem(trk_eval);
 
- //ana tutorial....  
+ //Analyi tutorial  
   ana_tutorial *anatu = new ana_tutorial();
   se->registerSubsystem(anatu);
 
