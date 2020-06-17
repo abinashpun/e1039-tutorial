@@ -1,6 +1,6 @@
 # Setup the project
-cmake_minimum_required(VERSION 2.6 FATAL_ERROR)
-project(ana_tutorial CXX C)
+cmake_minimum_required(VERSION 2.6 FATAL_ERROR) # sets the minimum version of CMake for this project
+project(ana_tutorial CXX C) #sets the project name
 
 # ROOT dict generation
 file(GLOB dicts "")
