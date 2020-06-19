@@ -30,7 +30,9 @@ execute_process(COMMAND root-config --libs   OUTPUT_VARIABLE ROOT_LINK    OUTPUT
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x ${ROOT_CFLAGS}")
 set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -lphool -lg4testbench")
-add_library(ana_tutorial SHARED ${sources} ${dicts})
+
+# library is built as a shared library using the SHARED flag (other options are: STATIC or MODULE), and the ana_tutorial name is used as the name of the shared library
+add_library(ana_tutorial SHARED ${sources} ${dicts}) 
 
 target_link_libraries(ana_tutorial -lgeom_svc -linterface_main -lfun4all -lphool -lSQPrimaryGen)
 
