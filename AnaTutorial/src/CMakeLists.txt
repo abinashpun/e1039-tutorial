@@ -38,11 +38,14 @@ target_link_libraries(ana_tutorial -lgeom_svc -linterface_main -lfun4all -lphool
 
 message(${CMAKE_PROJECT_NAME} " will be installed to " ${CMAKE_INSTALL_PREFIX})
 
+#define an installation location for the library
 install(TARGETS ana_tutorial DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
 
 file(GLOB dist_headers ${PROJECT_SOURCE_DIR}/*.h)
 file(GLOB non_dist_headers ${PROJECT_SOURCE_DIR}/*LinkDef.h)
 list(REMOVE_ITEM dist_headers ${non_dist_headers})
+
+define an installation location for the header files
 install(FILES ${dist_headers} DESTINATION ${CMAKE_INSTALL_PREFIX}/include/${CMAKE_PROJECT_NAME}/)
 
 # Install the pcm files in case of ROOT 6.
